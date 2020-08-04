@@ -13,7 +13,6 @@ tags = {
               aws_security_group.alb_security_group]
 }
 
-
 resource "aws_alb_target_group" "albtg" {
 	name	= "alb-front-http"
 	vpc_id	= aws_vpc.vpc.id
@@ -35,13 +34,6 @@ resource "aws_alb_target_group" "albtg" {
   depends_on = [aws_vpc.vpc]
 }
 
-#resource "aws_alb_target_group_attachment" "targetgroup_alb" {
-  #target_group_arn = "${aws_alb_target_group.albtg.arn}"
-  #count = "${length(var.public_subnet_cidr)}"
-  #port = 80
-  #target_id = "${element(aws_instance.BJSSEC2.*.id, count.index)}"
-  #target_id = aws_autoscaling_group.asg.*.id
-#}
 resource "aws_alb_listener" "front_end" {
   load_balancer_arn = aws_alb.bjss_load_balancer.arn
   port              = "80"
