@@ -43,7 +43,6 @@ resource "aws_alb_target_group" "albtg" {
   #target_id = aws_autoscaling_group.asg.*.id
 #}
 resource "aws_alb_listener" "front_end" {
-  #load_balancer_arn = "${aws_alb.bjss_load_balancer.arn}"
   load_balancer_arn = aws_alb.bjss_load_balancer.arn
   port              = "80"
   protocol          = "HTTP"
