@@ -3,5 +3,5 @@ output "vpc_id" {
 }
 
 output "alb_dns" {
-  value = "${aws_alb.bjss_load_balancer.dns_name}"
+  value =  aws_alb.bjss_load_balancer.dns_name
 }

@@ -7,10 +7,7 @@ resource "aws_alb" "bjss_load_balancer" {
 tags = {
     Name = "BJSS_load_balancer"
   }
-  #subnets = "${aws_subnet.public_subnet.*.id}"
   subnets = aws_subnet.public_subnet.*.id
-  depends_on = [aws_subnet.public_subnet,
-              aws_security_group.alb_security_group]
 }
 
 resource "aws_alb_target_group" "albtg" {
@@ -31,7 +28,6 @@ resource "aws_alb_target_group" "albtg" {
     tags = {
         Name = "alb_front_http_TF"
     }
-  depends_on = [aws_vpc.vpc]
 }
 
 resource "aws_alb_listener" "front_end" {
@@ -43,8 +39,5 @@ resource "aws_alb_listener" "front_end" {
     type             = "forward"
     target_group_arn = aws_alb_target_group.albtg.arn
   }
- 
-  depends_on = [aws_alb.bjss_load_balancer,
-                aws_alb_target_group.albtg
-              ]
+
 }

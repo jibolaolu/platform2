@@ -24,7 +24,6 @@ resource aws_security_group "security_group" {
   tags = {
     Name = "bjss-Public security group"
   }
-  depends_on = [aws_vpc.vpc, aws_security_group.alb_security_group]
 }
 
 resource "aws_security_group" "alb_security_group" {
@@ -57,5 +56,3 @@ resource "aws_security_group" "alb_security_group" {
     Name = "${var.service_name}-alb_security_group"
   }
 }
-
-
