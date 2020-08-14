@@ -13,30 +13,30 @@ variable "service_name" {
 }
 
 variable "public_subnet_cidr" {
-  type = "list"
+  type = list(string)
 
 }
 
 variable "public_subnet_names" {
-  type = "list"
+  type = list(string)
 }
 
 variable "private_subnet_cidr" {
-  type = "list"
+  type = list(string)
 
 }
 variable "private_subnet_names" {
-  type = "list"
+  type = list(string)
 }
 
 variable "instance_type" {
-  default  = "t2.micro"
+  default = "t2.micro"
 }
 
 variable "ami" {
   default = "ami-00f6a0c18edb19300"
 }
 variable "availability_zone" {
-  type = "list"
+  type = list(string)
 }
 
