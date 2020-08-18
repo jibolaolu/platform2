@@ -22,7 +22,7 @@ resource aws_security_group "security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "bjss-Public security group"
+    Name = "${var.service_name}-PublicSecurityGroup"
   }
 }
 

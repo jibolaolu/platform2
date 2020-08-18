@@ -5,7 +5,7 @@ resource "aws_route_table" "PublicRouteTable" {
     gateway_id = aws_internet_gateway.internet_gateway.id
   }
   tags = {
-    Name = "PublicRouteTable"
+    Name = "${var.service_name}-PublicRouteTable"
   }
 }
 
@@ -22,7 +22,7 @@ resource "aws_route_table" "PrivateRouteTable" {
     gateway_id = aws_nat_gateway.BJSSNGW.id
   }
   tags = {
-    Name = "Private Route Table"
+    Name = "${var.service_name}-PrivateRouteTable"
   }
 }
 

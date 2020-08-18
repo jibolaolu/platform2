@@ -1,11 +1,11 @@
 resource "aws_alb" "bjss_load_balancer" {
   load_balancer_type = "application"
-  name               = "BJSS-LoadBalancer"
+  name               = "${var.service_name}-Load-Balancer"
   internal           = false
   security_groups    = [aws_security_group.alb_security_group.id]
 
   tags = {
-    Name = "BJSS_load_balancer"
+    Name = "${var.service_name}-Load-Balancer"
   }
   subnets = aws_subnet.public_subnet.*.id
 }
@@ -26,7 +26,7 @@ resource "aws_alb_target_group" "albtg" {
     matcher             = "200"
   }
   tags = {
-    Name = "alb_front_http_TF"
+    Name = "${var.service_name}-alb_front"
   }
 }
 

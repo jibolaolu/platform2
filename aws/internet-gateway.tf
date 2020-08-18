@@ -12,6 +12,6 @@ resource "aws_nat_gateway" "BJSSNGW" {
   subnet_id     = aws_subnet.public_subnet[0].id
 
   tags = {
-    Name = "NATGW"
+    Name = "${var.service_name}-NATGW"
   }
 }

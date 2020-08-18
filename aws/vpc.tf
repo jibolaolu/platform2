@@ -11,6 +11,6 @@ resource "aws_vpc" "vpc" {
 resource "aws_eip" "EIP" {
   vpc = true
   tags = {
-    Name = "EIP"
+    Name = "${var.service_name}-EIP"
   }
 }
